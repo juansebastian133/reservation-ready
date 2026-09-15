@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as DashboardClienteRouteImport } from './routes/dashboard.cliente'
+import { Route as DashboardProveedorRouteImport } from './routes/dashboard.proveedor'
+import { Route as ResetPasswordTokenRouteImport } from './routes/reset-password.$token'
+import { Route as VerifyEmailIndexRouteImport } from './routes/verify-email.index'
+import { Route as VerifyEmailTokenRouteImport } from './routes/verify-email.$token'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardClienteRoute = DashboardClienteRouteImport.update({
+  id: '/dashboard/cliente',
+  path: '/dashboard/cliente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardProveedorRoute = DashboardProveedorRouteImport.update({
+  id: '/dashboard/proveedor',
+  path: '/dashboard/proveedor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordTokenRoute = ResetPasswordTokenRouteImport.update({
+  id: '/reset-password/$token',
+  path: '/reset-password/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyEmailIndexRoute = VerifyEmailIndexRouteImport.update({
+  id: '/verify-email/',
+  path: '/verify-email/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyEmailTokenRoute = VerifyEmailTokenRouteImport.update({
+  id: '/verify-email/$token',
+  path: '/verify-email/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
+  '/register': typeof RegisterRoute
+  '/dashboard/cliente': typeof DashboardClienteRoute
+  '/dashboard/proveedor': typeof DashboardProveedorRoute
+  '/reset-password/$token': typeof ResetPasswordTokenRoute
+  '/verify-email/$token': typeof VerifyEmailTokenRoute
+  '/verify-email/': typeof VerifyEmailIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
+  '/register': typeof RegisterRoute
+  '/dashboard/cliente': typeof DashboardClienteRoute
+  '/dashboard/proveedor': typeof DashboardProveedorRoute
+  '/reset-password/$token': typeof ResetPasswordTokenRoute
+  '/verify-email/$token': typeof VerifyEmailTokenRoute
+  '/verify-email': typeof VerifyEmailIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
+  '/register': typeof RegisterRoute
+  '/dashboard/cliente': typeof DashboardClienteRoute
+  '/dashboard/proveedor': typeof DashboardProveedorRoute
+  '/reset-password/$token': typeof ResetPasswordTokenRoute
+  '/verify-email/$token': typeof VerifyEmailTokenRoute
+  '/verify-email/': typeof VerifyEmailIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/profile'
+    | '/register'
+    | '/dashboard/cliente'
+    | '/dashboard/proveedor'
+    | '/reset-password/$token'
+    | '/verify-email/$token'
+    | '/verify-email/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/profile'
+    | '/register'
+    | '/dashboard/cliente'
+    | '/dashboard/proveedor'
+    | '/reset-password/$token'
+    | '/verify-email/$token'
+    | '/verify-email'
+  id:
+    | '__root__'
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/profile'
+    | '/register'
+    | '/dashboard/cliente'
+    | '/dashboard/proveedor'
+    | '/reset-password/$token'
+    | '/verify-email/$token'
+    | '/verify-email/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  ProfileRoute: typeof ProfileRoute
+  RegisterRoute: typeof RegisterRoute
+  DashboardClienteRoute: typeof DashboardClienteRoute
+  DashboardProveedorRoute: typeof DashboardProveedorRoute
+  ResetPasswordTokenRoute: typeof ResetPasswordTokenRoute
+  VerifyEmailTokenRoute: typeof VerifyEmailTokenRoute
+  VerifyEmailIndexRoute: typeof VerifyEmailIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/cliente': {
+      id: '/dashboard/cliente'
+      path: '/dashboard/cliente'
+      fullPath: '/dashboard/cliente'
+      preLoaderRoute: typeof DashboardClienteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/proveedor': {
+      id: '/dashboard/proveedor'
+      path: '/dashboard/proveedor'
+      fullPath: '/dashboard/proveedor'
+      preLoaderRoute: typeof DashboardProveedorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password/$token': {
+      id: '/reset-password/$token'
+      path: '/reset-password/$token'
+      fullPath: '/reset-password/$token'
+      preLoaderRoute: typeof ResetPasswordTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify-email/': {
+      id: '/verify-email/'
+      path: '/verify-email'
+      fullPath: '/verify-email/'
+      preLoaderRoute: typeof VerifyEmailIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify-email/$token': {
+      id: '/verify-email/$token'
+      path: '/verify-email/$token'
+      fullPath: '/verify-email/$token'
+      preLoaderRoute: typeof VerifyEmailTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  ProfileRoute: ProfileRoute,
+  RegisterRoute: RegisterRoute,
+  DashboardClienteRoute: DashboardClienteRoute,
+  DashboardProveedorRoute: DashboardProveedorRoute,
+  ResetPasswordTokenRoute: ResetPasswordTokenRoute,
+  VerifyEmailTokenRoute: VerifyEmailTokenRoute,
+  VerifyEmailIndexRoute: VerifyEmailIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
