@@ -137,7 +137,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       hydrated,
       attempts,
       login,
-      logout: () => persist(null),
+      logout: () => {
+        persist(null);
+        // Limpia también la cookie httpOnly de sesión en el backend.
+        // No bloquea la UI ni falla el logout local si la petición no llega.
+        void api.logoutUser().catch(() => undefined);
+      },
       updateUser: (next: SessionUser) => persist(next),
       dashboardPath: (role: UserRole) =>
         role === "proveedor" ? "/dashboard/proveedor" : "/dashboard/cliente",
